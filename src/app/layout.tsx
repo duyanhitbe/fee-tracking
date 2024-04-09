@@ -1,15 +1,11 @@
-import type {Metadata} from "next";
+"use client"
 import {Inter} from "next/font/google";
 import "./globals.css";
 import {Header} from "@app/components/Header";
 import {Footer} from "@app/components/Footer";
+import {AppContextProvider} from "@app/contexts/AppContext";
 
 const inter = Inter({subsets: ["latin"]});
-
-export const metadata: Metadata = {
-    title: "Fee Tracking",
-    description: "Statistic fee",
-};
 
 export default function RootLayout({
                                        children,
@@ -18,10 +14,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+        <title>Fee Tracking</title>
         <body className={inter.className}>
-        <Header/>
-        {children}
-        <Footer/>
+        <AppContextProvider>
+            <Header/>
+            {children}
+            <Footer/>
+        </AppContextProvider>
         </body>
         </html>
     );
