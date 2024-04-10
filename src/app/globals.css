@@ -32,3 +32,27 @@ body {
         text-wrap: balance;
     }
 }
+
+@media (min-width: 1280px) {
+    .header {
+        transform: translate(-50%, 0);
+        left: 50%;
+        width: 28rem;
+        padding: 2rem 0 0;
+    }
+    .footer {
+        transform: translate(-50%, 0);
+        left: 50%;
+        width: 32rem;
+    }
+    .tag {
+        transform: translate(-50%, 0);
+        left: 50%;
+        width: 32rem;
+    }
+    .layout-create-item {
+        transform: translate(-50%, 0);
+        left: 50%;
+        width: 32rem;
+    }
+}

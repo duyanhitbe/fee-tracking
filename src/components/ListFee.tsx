@@ -1,5 +1,6 @@
 import {FeeItem} from "@app/components/FeeItem";
 import {toVnd} from "@app/helpers/format.helper";
+import {Tags} from "@app/constants/tags.constant";
 
 export const ListFee = () => {
     return <>
@@ -8,9 +9,10 @@ export const ListFee = () => {
             <span className="text-md text-gray-400">- {toVnd(800000)}</span>
         </div>
 
-        <FeeItem icon={"👕"} title={"Quần áo"} createdAt={new Date()} amount={-200000}/>
-        <FeeItem icon={"👞"} title={"Giày dép"} createdAt={new Date()} amount={-150000}/>
-        <FeeItem icon={"🥕"} title={"Đi chợ"} createdAt={new Date()} amount={-300000}/>
-        <FeeItem icon={"💵"} title={"Lương"} createdAt={new Date()} amount={15000000}/>
+        {
+            Tags.map(({icon, title}) =>
+                <FeeItem key={icon} icon={icon} title={title} createdAt={new Date()} amount={-200000}/>
+            )
+        }
     </>
 }
