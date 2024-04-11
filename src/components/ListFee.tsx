@@ -4,14 +4,18 @@ import {getCurrencyText, toVnd} from "@app/helpers/format.helper";
 import {useContext} from "react";
 import {AppContext} from "@app/contexts/AppContext";
 import {Loading} from "@app/components/Loading";
+import {IFee} from "@app/models/fee.model";
 
-export const ListFee = () => {
-    const {fees, isLoadingFee} = useContext(AppContext)
+type Props = {
+    fees: IFee[]
+    loading: boolean;
+}
 
+export const ListFee = ({fees, loading}: Props) => {
     const calculateFeeToday = () => fees.reduce((prev, current) => prev + current.amount, 0)
 
     return (
-        isLoadingFee
+        loading
             ? <div className="flex justify-center flex-1 items-center w-full"><Loading/></div>
             : <>
                 <div className="flex justify-between px-5 mb-4">

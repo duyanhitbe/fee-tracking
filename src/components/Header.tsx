@@ -9,7 +9,7 @@ export const Header = () => {
         <BsMoonStars className="flex-2"/>
         {/*<BsMoonStarsFill />*/}
         <p className="flex-1 text-center uppercase">
-            <Link href="/" className="no-underline text-black">Today</Link>
+            <Link href="/" className="no-underline text-black">Home</Link>
         </p>
         <BiLogOut className="flex-2"/>
     </section>

@@ -23,4 +23,10 @@ export class FeeService {
 
         return result;
     }
+
+    static async getInDay(date: Date): Promise<IFee[]> {
+        return fetch(`/api/fee/in-day?startDate=${date.toISOString()}`).then((response: Response) => {
+            return response.json();
+        })
+    }
 }
