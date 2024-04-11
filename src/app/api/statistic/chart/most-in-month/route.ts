@@ -1,7 +1,9 @@
 import moment from "moment";
 import {Fee, IFee} from "@app/models/fee.model";
+import connectDB from "@app/app/lib/connectDB";
 
 export async function GET(request: Request) {
+    await connectDB()
     const startOfMonth = moment().startOf('month').toDate();
     const endOfMonth = moment().endOf('month').toDate();
 

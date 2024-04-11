@@ -1,7 +1,9 @@
 import moment from "moment";
 import {Fee} from "@app/models/fee.model";
+import connectDB from "@app/app/lib/connectDB";
 
 export async function GET(request: Request) {
+    await connectDB()
     const startOfWeek = moment().startOf('week').toDate();
     startOfWeek.setDate(startOfWeek.getDate() + 1)
     const endOfWeek = moment().endOf('week').toDate();
