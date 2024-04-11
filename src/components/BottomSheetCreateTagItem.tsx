@@ -10,6 +10,7 @@ export const BottomSheetCreateTagItem = () => {
     const {toggleBottomSheetCreateTagItem} = useContext(AppContext)
     const [icon, setIcon] = useState<string>("")
     const [title, setTitle] = useState<string>("")
+    const [type, setType] = useState<string>("")
     const {setTags, tags} = useContext(AppContext);
     const [isShowEmojiPicker, setShowEmojiPicker] = useState<boolean>(false)
 
@@ -19,7 +20,7 @@ export const BottomSheetCreateTagItem = () => {
             return;
         }
 
-        const createTag = TagService.createTag({icon, title})
+        const createTag = TagService.createTag({icon, title, type})
         toast.promise(createTag, {
             pending: "Creating tag",
             success: "Create tag successfully!",
@@ -58,6 +59,12 @@ export const BottomSheetCreateTagItem = () => {
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="name"
                     className="placeholder:text-gray-300 text-center pb-3 text-3xl mt-5 m-0 w-56 bg-transparent outline-none text-gray-400 border-solid border-b border-l-0 border-r-0 border-t-0 border-b-gray-300"/>
+                <select
+                    onChange={(e) => setType(e.target.value)}
+                    className="text-center pb-3 text-3xl mt-5 m-0 w-56 bg-transparent outline-none text-gray-400 border-solid border-b border-l-0 border-r-0 border-t-0 border-b-gray-300">
+                    <option selected value="SPEND">Chi</option>
+                    <option value="COLLECT">Thu</option>
+                </select>
                 <CommonButton
                     type="button"
                     bgColor="amber-200"

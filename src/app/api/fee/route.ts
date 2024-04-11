@@ -40,7 +40,15 @@ export async function POST(request: Request) {
     if (!amount || !tagId) {
         return Response.json({message: 'invalid payload'}, {status: 400})
     }
+    const tag = await Tag.findById(tagId);
+    if (!tag) {
+        return Response.json({message: 'invalid payload'}, {status: 400})
+    }
+    body.amount = Math.abs(amount);
+    if (tag._doc.type === 'SPEND') {
+        body.amount*=-1;
+    }
     const fee = await Fee.create(body);
-    fee.tag = await Tag.findById(tagId);
+    fee.tag = tag;
     return Response.json(fee)
 }

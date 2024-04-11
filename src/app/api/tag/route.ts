@@ -14,8 +14,8 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
     await connectDB();
     const body = await request.json();
-    const {title, icon} = body;
-    if (!title || !icon) {
+    const {title, icon, type} = body;
+    if (!title || !icon || !type) {
         return Response.json({message: 'invalid payload'}, {status: 400})
     }
     const tag = await Tag.create(body);

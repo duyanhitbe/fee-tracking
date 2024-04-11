@@ -7,7 +7,7 @@ export class TagService {
         })
     }
 
-    static async createTag(data: { icon: string, title: string }): Promise<ITag> {
+    static async createTag(data: { icon: string, title: string, type: string }): Promise<ITag> {
         const response = await fetch('/api/tag', {method: 'post', body: JSON.stringify(data)});
         const result = await response.json();
 
