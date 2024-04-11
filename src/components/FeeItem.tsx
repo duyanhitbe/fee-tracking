@@ -1,4 +1,4 @@
-import {getCurrencyColor, getCurrencyText, toShortDate, toVnd} from "@app/helpers/format.helper";
+import {getCurrencyText, toShortDate} from "@app/helpers/format.helper";
 
 type Props = {
     icon: string;
@@ -15,6 +15,6 @@ export const FeeItem = (props: Props) => {
             <span className="text-gray-400 text-sm">{toShortDate(props.createdAt)}</span>
         </div>
         <span
-            className={getCurrencyColor(props.amount)}>{getCurrencyText(props.amount)}</span>
+            className={props.amount === 0 ? "text-gray-300" : props.amount < 0 ? "text-red-500" : "text-green-500"}>{getCurrencyText(props.amount)}</span>
     </div>
 }

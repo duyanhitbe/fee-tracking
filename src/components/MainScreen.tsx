@@ -1,5 +1,5 @@
 "use client"
-import {getCurrencyColor, getCurrencyText, toVnd} from "@app/helpers/format.helper";
+import {getCurrencyText} from "@app/helpers/format.helper";
 import {useContext} from "react";
 import {AppContext} from "@app/contexts/AppContext";
 import {Loading} from "@app/components/Loading";
@@ -11,7 +11,8 @@ export const MainScreen = () => {
         <div className="text-gray-400 text-md text-center m-1">Spent this month</div>
         {
             isLoadingFeeInMonth ? <Loading/> :
-                <div className={`text-center text-5xl m-1 ${getCurrencyColor(feeInMonth)}`}>{getCurrencyText(feeInMonth)}</div>
+                <div
+                    className={`text-center text-5xl m-1 ${feeInMonth === 0 ? "text-gray-300" : feeInMonth < 0 ? "text-red-500" : "text-green-500"}`}>{getCurrencyText(feeInMonth)}</div>
         }
     </div>
 }

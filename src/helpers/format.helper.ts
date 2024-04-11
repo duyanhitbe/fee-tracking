@@ -13,19 +13,6 @@ export const toLongDate = (date: Date) => date.toLocaleString('en-US', {
     day: '2-digit'
 });
 
-export const getCurrencyColor = (num: number) => {
-    if (num < 0) {
-        return "text-red-500";
-    }
-    if (num > 0) {
-        return "text-green-500";
-    }
-    if (num === 0) {
-        return "text-gray-300"
-    }
-    return "text-red-500";
-}
-
 export const getCurrencyText = (num: number) => {
     if (num > 0) {
         return "+" + toVnd(num);
