@@ -1,7 +1,8 @@
 import {Fee} from "@app/models/fee.model";
+import connectDB from "@app/app/lib/connectDB";
 
 export async function GET(request: Request) {
-    const month = new Date().getMonth() + 1;
+    await connectDB();
     const [data] = await Fee.aggregate([
         {
             $addFields: {
@@ -12,7 +13,7 @@ export async function GET(request: Request) {
         },
         {
             $match: {
-                month
+                month: new Date().getMonth() + 1
             }
         },
         {
