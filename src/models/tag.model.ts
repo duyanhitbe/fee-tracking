@@ -5,7 +5,7 @@ export type ITag = mongoose.Document & {
     title: string;
 }
 
-const tagSchema = new mongoose.Schema<ITag>({
+export const tagSchema = new mongoose.Schema<ITag>({
     icon: {type: String, required: true},
     title: {type: String, required: true},
 }, {versionKey: false, timestamps: true})

@@ -14,8 +14,12 @@ export const BottomSheetCreateTagItem = () => {
     const [isShowEmojiPicker, setShowEmojiPicker] = useState<boolean>(false)
 
     const onSubmit = () => {
-        const createTag = TagService.createTag({icon, title})
+        if (icon.length === 0 || title.length === 0) {
+            toast.error("Icon and title is required")
+            return;
+        }
 
+        const createTag = TagService.createTag({icon, title})
         toast.promise(createTag, {
             pending: "Creating tag",
             success: "Create tag successfully!",
@@ -55,8 +59,9 @@ export const BottomSheetCreateTagItem = () => {
                     placeholder="name"
                     className="placeholder:text-gray-300 text-center pb-3 text-3xl mt-5 m-0 w-56 bg-transparent outline-none text-gray-400 border-solid border-b border-l-0 border-r-0 border-t-0 border-b-gray-300"/>
                 <CommonButton
+                    type="button"
                     bgColor="amber-200"
-                    onClick={onSubmit}>Add
+                    onClick={() => onSubmit()}>Add
                 </CommonButton>
             </div>
         </form>

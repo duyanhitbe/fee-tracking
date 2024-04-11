@@ -55,4 +55,8 @@ body {
         left: 50%;
         width: 32rem;
     }
+    .toast {
+        width: 28rem !important;
+        margin: 0 !important;
+    }
 }

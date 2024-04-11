@@ -29,7 +29,7 @@ export const BottomSheetCreateTag = () => {
                 </div>
                 {
                     tags.map((tag) =>
-                        <div key={tag?._id} className="flex flex-col justify-center items-center text-gray-500 gap-3"
+                        <div key={tag?._id} className="cursor-pointer flex flex-col justify-center items-center text-gray-500 gap-3"
                              onClick={() => {
                                  setTag(tag);
                                  toggleBottomSheetCreateTag();

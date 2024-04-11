@@ -44,6 +44,7 @@ export default function RootLayout({children}: Props) {
                 marginLeft: "1rem",
                 width: "92%"
             }}
+            className="toast"
         />
         </body>
         </html>
