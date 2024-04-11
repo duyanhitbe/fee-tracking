@@ -1,6 +1,6 @@
 "use client"
 import { useSearchParams } from 'next/navigation'
-import {useEffect, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 import {IFee} from "@app/models/fee.model";
 import {FeeService} from "@app/services/fee.service";
 import {ListFee} from "@app/components/ListFee";
@@ -28,4 +28,12 @@ const HistoryDetailPage = () => {
     </div>
 };
 
-export default HistoryDetailPage;
+function SearchBarFallback() {
+    return <>placeholder</>
+}
+
+export default function Page() {
+    return <Suspense fallback={<SearchBarFallback />}>
+        <HistoryDetailPage />
+    </Suspense>
+};
