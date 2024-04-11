@@ -6,6 +6,11 @@ export const toShortDate = (date: Date) => date.toLocaleString('en-US', {
     minute: '2-digit'
 });
 
+export const toShortDay = (date: Date) => date.toLocaleString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+});
+
 export const toLongDate = (date: Date) => date.toLocaleString('en-US', {
     weekday: 'long',
     year: 'numeric',

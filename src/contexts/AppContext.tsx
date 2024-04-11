@@ -97,7 +97,7 @@ export const AppContextProvider = ({children}: Props) => {
             setFees(fees);
             setLoadingFee(false);
         })
-        StatisticService.getInMonth().then((total) => {
+        StatisticService.getInTotalMonth().then((total) => {
             setFeeInMonth(total);
             setLoadingFeeInMonth(false);
         })

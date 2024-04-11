@@ -21,7 +21,9 @@ export default function RootLayout({children}: Props) {
         <div className="flex flex-col w-full max-w-lg min-h-screen mx-auto shadow-lg">
             <AppContextProvider>
                 <Header/>
-                {children}
+                <div className="body">
+                    {children}
+                </div>
                 <Footer/>
                 <CreateFeeItem/>
             </AppContextProvider>

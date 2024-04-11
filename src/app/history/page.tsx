@@ -1,5 +1,7 @@
 const HistoryPage = () => {
-    return <></>
+    return <>
+
+    </>
 }
 
 export default HistoryPage;
