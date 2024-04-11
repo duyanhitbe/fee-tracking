@@ -10,7 +10,7 @@ export const BottomSheetCreateTagItem = () => {
     const {toggleBottomSheetCreateTagItem} = useContext(AppContext)
     const [icon, setIcon] = useState<string>("")
     const [title, setTitle] = useState<string>("")
-    const [type, setType] = useState<string>("")
+    const [type, setType] = useState<string>("SPEND")
     const {setTags, tags} = useContext(AppContext);
     const [isShowEmojiPicker, setShowEmojiPicker] = useState<boolean>(false)
 
